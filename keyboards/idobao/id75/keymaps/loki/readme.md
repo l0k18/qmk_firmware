@@ -1,0 +1,21 @@
+# loki
+
+Loki is a custom keyboard layout for the Idobao ID75 keyboard that provides the following features:
+
+- Standard keys are two 5x3 (HxV) blocks for the usual locations of the alphabetical keys and the standard punctuation that is part of it. 
+- Default base layout is Dvorak
+- Can be switched by using bottom-right Fn key with the Num Lock to QWERTY, which makes gaming key layouts as standard, with the left 15 group where most of the important keys are. Number keys are more accessible to the left hand, for the standard use case of switching weapons or similar. The reason for this is many games don't permit the use of custom defined keys that are not letter keys. Don't ask me why, the whole thing of keyboard USB interfaces is retarded, despite the fact that UTF was not long after the USB standard. Brittle interfaces I guess.
+- Arrow keys and pagers and home/end are activated by using the centre bottom key as a momentary modifier, so that in normal typing only the enter key is active at the center, and when the movement key set is activated, the enter key is disabled to prevent accidental confirmation.
+- Rather than use standard numeric keypad keys, a layer provides a modifier to the left of a 3x4 grid in the standard layout as a numeric keypad except for the 2 wide 0 key is only one key, and beside it is the `.` - ie, it won't type in a comma in european locales. Thus the bottom right key (which is normally Fn) will make a comma. Previously I configured these keys as numeric keypad keys which then requires a num lock key, and instead it's a momentary layer switch and top row numbers otherwise they would behave as movement keys, which are already available in the centre of the keyboard.
+- Because of the retardation of USB keyboard device standard, it is not facile to send key signals that are not defined by a keyboard layout. Thus a US keyboard layout set on the OS level cannot also have either a Euro symbol or a GBP symbol. Though oddly it can do Yen, (via ISO/JIS). Any method of fixing this entirely depends on the OS and is different per OS, this is also why HTML has entities. The only real solution is app level auto-replace or ligature-style converting 2 and 3 character strings etc to a specified symbol.
+- Most of the keyboard lighting mode keys are available using the `Fn` key as well as browser and media keys, and for the convenience of Dvorak typists like me, the set of "multimedia" type keys for cut, copy, paste, find, and the calculator button under the left shift key.
+- There is no right hand side modifier keys, but most people don't even use them anyway except for maybe shift, or legendary data input practitioners.
+- Last, but not least, a customised, Dvorak based, phonetic equivalent Cyrillic key set is available if one has a Russian layout enabled, and it includes all of the Russian symbols, though it was devised primarily for Bulgarian, the standard Bulgarian keyboard has one single key missing from the Russian cyrillic, so it is simpler to use the standard Russian keyboard layout, often referred to by people in eastern europe as (pardon me if I err) йцукен (ee-tsuken, probably is the pronunciation) or something like this.
+- The extra ciphers that don't have a direct correspondent in english Latin letters are found mostly across the top row under numbers that closely resemble it or are often used as substitute letters from US keyboards by slavic typists, such as 6 for щ  and the 7 (with ampersand above it) for ъ and ы is under the 1, and the straight E symbol Э (as opposed to the E pronounced YE in Russian) is under the similar looking 3, since Z is already covered for зЗ. 
+- Accessing the cyrillic layout is made a little easier by the key combination `Fn`-`Ins` which changes the key layout layer, and in the Cyrillic mode, pressing the `Ins` key is a shortcut for `Win-Space`, which is the standard default OS key combination to rotate through the configured keyboard layouts, set up standard US and Russian layouts on your OS, and these keys will switch quickly for you. Returning to Dvorak you press the `Esc` key, which again, not ideal but support for Cyrillic typing is aimed at a US Dvorak touch typist.
+
+To build this layout, from the folder in which you cloned the qmk_firmware repository, type:
+
+```
+qmk compile -kb idobao/id75/v2 -km loki
+```
