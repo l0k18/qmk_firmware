@@ -48,9 +48,11 @@ following features:
 In the near future, southwest european accented letters will be added, which
 will depend on another keyboard layout and layer.
 
-To build this layout, from the folder in which you cloned the qmk_firmware
-repository, type:
+To build this layout, from the root of the repository, type:
 
 ```
-qmk compile -kb idobao/id75/v2 -km loki
+qmk json2c keyboards/idobao/id75/keymaps/loki/idobao_id75_v2_layout_ortho_5x15_mine.json \
+  -o keyboards/idobao/id75/keymaps/loki/keymap.c && \
+  qmk compile -kb idobao/id75/v2 -km loki && \
+  qmk flash -kb idobao/id75/v2 -km loki
 ```
